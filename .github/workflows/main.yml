@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+jobs:
+  say_hello:
+    name: saying hello
+    runs-on: ubuntu-latest
+    steps:
+      - name: say hello
+        run: echo ${{github.events.pull_request.title}}
